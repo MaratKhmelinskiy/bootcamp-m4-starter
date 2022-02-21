@@ -4,26 +4,26 @@ import './ListPage.css';
 class ListPage extends Component {
     state = {
         movies: [],
-        title : "",
-       
+        title: "",
+
     }
     componentDidMount() {
         const id = this.props.match.params.id;
         console.log(id);
         fetch(`https://acb-api.algoritmika.org/api/movies/list/${id}`)
 
-        .then(response => response.json())
-        .then(data => {
-           
-            this.setState({movies: data.movies, title: data.title})
-        })
-        .catch((error)=>{
-            console.log (error);
-        })
-      
+            .then(response => response.json())
+            .then(data => {
+
+                this.setState({ movies: data.movies, title: data.title })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
 
     }
-    render() { 
+    render() {
         return (
             <div className="list-page">
                 <h1 className="list-page__title">Мой список</h1>
@@ -40,5 +40,5 @@ class ListPage extends Component {
         );
     }
 }
- 
+
 export default ListPage;

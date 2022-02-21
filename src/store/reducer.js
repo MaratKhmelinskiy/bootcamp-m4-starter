@@ -46,7 +46,7 @@ function reducer(state = initialState, action) {
                 ...state,
                 favMovies: newFilms
             };
-            
+
         case 'GET_LIST_ID':
             return {
                 ...state, idList: action.payload.listId

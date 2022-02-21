@@ -5,7 +5,7 @@ import './SearchBox.css';
 class SearchBox extends Component {
     state = {
         searchLine: '',
-        filminfo:'',
+        filminfo: '',
     }
 
 
@@ -13,14 +13,14 @@ class SearchBox extends Component {
 
     searchLineChangeHandler = (e) => {
         this.setState({ searchLine: e.target.value });
-       
+
         console.log('local state', e.target.value);
     }
     searchBoxSubmitHandler = (e) => {
         e.preventDefault();
         store.dispatch({
-            type : 'SEARCH',
-            payload : {
+            type: 'SEARCH',
+            payload: {
                 searchLine: this.state.searchLine
 
             }
@@ -57,6 +57,6 @@ class SearchBox extends Component {
         );
     }
 }
- 
+
 export default SearchBox;
 
