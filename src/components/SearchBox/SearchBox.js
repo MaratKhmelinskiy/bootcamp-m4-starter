@@ -1,16 +1,34 @@
 import React, { Component } from 'react';
+import store from '../../store/store';
 import './SearchBox.css';
 
 class SearchBox extends Component {
     state = {
-        searchLine: ''
+        searchLine: '',
+        filminfo:'',
     }
+
+
+
+
     searchLineChangeHandler = (e) => {
         this.setState({ searchLine: e.target.value });
+       
+        console.log('local state', e.target.value);
     }
     searchBoxSubmitHandler = (e) => {
         e.preventDefault();
+        store.dispatch({
+            type : 'SEARCH',
+            payload : {
+                searchLine: this.state.searchLine
+
+            }
+        })
     }
+
+
+
     render() {
         const { searchLine } = this.state;
 
@@ -41,3 +59,4 @@ class SearchBox extends Component {
 }
  
 export default SearchBox;
+
